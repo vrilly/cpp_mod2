@@ -1,1 +1,1 @@
-add_executable(fixed main.cpp Fixed.cpp Fixed.hpp)
+add_executable(ex00 main.cpp Fixed.cpp Fixed.hpp)

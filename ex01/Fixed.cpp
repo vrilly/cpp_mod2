@@ -1,7 +1,5 @@
 // Created by Tom Jans on 01-08-20.
 #include "Fixed.hpp"
-#include "../ex01/Fixed.hpp"
-
 
 Fixed::Fixed()
     : fixed(3)
@@ -36,4 +34,30 @@ int Fixed::getRawBits() const
 void Fixed::setRawBits(const int raw)
 {
     fixed = raw;
+}
+
+Fixed::Fixed(const int i)
+{
+    fixed = i << frac_bits;
+}
+
+Fixed::Fixed(const float f)
+{
+    fixed = (unsigned int) std::roundf(f * (1 << frac_bits));
+}
+
+float Fixed::toFloat(void) const
+{
+    return (float) fixed / (1 << frac_bits);
+}
+
+int Fixed::toInt(void) const
+{
+    return fixed >> frac_bits;
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed &obj)
+{
+    os << obj.toFloat();
+    return os;
 }
