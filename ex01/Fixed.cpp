@@ -43,7 +43,7 @@ Fixed::Fixed(const int i)
 
 Fixed::Fixed(const float f)
 {
-    fixed = (unsigned int) std::roundf(f * (1 << frac_bits));
+    fixed = (unsigned int) roundf(f * (1 << frac_bits));
 }
 
 float Fixed::toFloat(void) const
